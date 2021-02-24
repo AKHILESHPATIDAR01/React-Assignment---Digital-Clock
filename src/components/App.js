@@ -11,7 +11,7 @@ function App(){
     //     setInterval(updateTime,1000);
     // };
 
-    setInterval(updateTime,1000);
+    var timeer = setInterval(updateTime,1000);
 
         // setInterval(()=>{
         //     time = new Date().toLocaleTimeString();
@@ -27,10 +27,12 @@ function App(){
             time = new Date().toLocaleTimeString();
             // console.log(time);
             setDisplayTime(time);
-        }
+        };
 
 
-
+        // componentWillUnmount() {
+        //     clearInterval(this.timeer);
+        // }
 
         
 
