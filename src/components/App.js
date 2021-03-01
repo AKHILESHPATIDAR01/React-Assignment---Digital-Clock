@@ -71,20 +71,35 @@ class App extends React.Component {
     }
 
     render() {
-        let hours = this.state.date.getHours();
-        hours = hours % 12;
-        let minutes = this.state.date.getMinutes();
-        let seconds = this.state.date.getSeconds();
-        let ampm = this.state.date.getHours() >= 12 ? 'PM' : 'AM';
-        let result = ` ${hours}:${minutes}:${seconds}`
-        return (
-            <div className="Clock">
-                <h3 id="time">
-                    {result}{ampm}
+//         let hours = this.state.date.getHours();
+//         hours = hours % 12;
+//         let minutes = this.state.date.getMinutes();
+//         let seconds = this.state.date.getSeconds();
+//         let ampm = this.state.date.getHours() >= 12 ? 'PM' : 'AM';
+//         let result = ` ${hours}:${minutes}:${seconds}`
+//         return (
+//             <div className="Clock">
+//                 <h3 id="time">
+//                     {result}{ampm}
 
-                </h3>
-            </div>
-        );
+//                 </h3>
+//             </div>
+//         );
+            
+                let hours = this.state.date.getHours() < 12 ? this.state.date.getHours() : this.state.date.getHours() - 12;
+                let minutes = this.state.date.getMinutes();
+                let seconds = this.state.date.getSeconds();
+                let ampm = this.state.date.getHours() >= 12 ? 'PM' : 'AM';
+                return (
+                    <div className="Clock">
+                        <h3 id="time">
+                            {hours == 0 ? 12 : hours > 12 ? hours - 12 : hours}:
+                            {minutes > 9 ? minutes : `0${minutes}`}:
+                            {seconds > 9 ? seconds : `0${seconds}`} {ampm}
+                        </h3>
+                    </div>
+                );
+            
     }
 }
 
