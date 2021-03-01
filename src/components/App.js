@@ -102,7 +102,7 @@ class App extends React.Component {
            return (
                    <div className="Clock">
                         <h3 id="time">
-                                {this.state.time.toLocaleTimeString()}
+                                {this.state.date.toLocaleTimeString()}
                         </h3>
                     </div>
                 );
